@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script>
+        function search(){
+            var req = new XMLHttpRequest();
+          
+            
+            
+            req.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    alert(this.responseText);
+                }
+                
+            };
+            req.open("GET","request.php?q=definition",true);
+            req.send();
+        }
+        </script>
+    </head>
+    <body>
+        <button onclick = "search()">Search</button>
+
+    </body>
+</html>
