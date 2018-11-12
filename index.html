@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> </title>
+        <title>Web Dictionary </title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script>
-        function search(){
+        function search(sword){
             var req = new XMLHttpRequest();
+            
           
             
             
             req.onreadystatechange = function(){
                 if(this.readyState == 4 && this.status == 200){
-                    alert(this.responseText);
+                    document.getElementById("result").innerHTML = this.responseText;
                 }
                 
             };
-            req.open("GET","request.php?q=definition",true);
+            req.open("GET","request.php?q="+sword,true);
             req.send();
+             
         }
         </script>
     </head>
     <body>
-        <button onclick = "search()">Search</button>
-
+        <h1>Web Dictionary</h1>
+        <p1>Look up the definiton of a word(eg.ajax,html,bar,php,javascript or css)</p1>
+        <br>
+        <br>
+        <input type = "text" id ="stext">
+        <button onclick = "search(stext.value)">Search</button>
+        <hr>
+        <h1>Result</h1>
+        <div id="result"></div>
     </body>
 </html>
